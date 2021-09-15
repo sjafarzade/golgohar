@@ -17,14 +17,19 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-export default function DatePickers() {
+interface props {
+  label: "string";
+}
+
+export default function DatePickers(props: props) {
+  const { label = "" } = props;
   const classes = useStyles();
 
   return (
     <>
       <TextField
         id="date"
-        label="Birthday"
+        label={label}
         type="date"
         defaultValue="2017-05-24"
         className={classes.textField}

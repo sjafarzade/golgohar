@@ -33,14 +33,19 @@ const useStyles = makeStyles(
   // })
 );
 
-export default function TimePickers() {
+interface props {
+  label: "string";
+}
+
+export default function TimePickers(props: props) {
+  const { label = "" } = props;
   const classes = useStyles();
 
   return (
     <>
       <TextField
         id="time"
-        label="Alarm clock"
+        label={label}
         type="time"
         defaultValue="07:30"
         className={classes.textField}
