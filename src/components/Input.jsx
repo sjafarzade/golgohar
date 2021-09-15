@@ -44,9 +44,9 @@ export default function FormPropsTextFields(props) {
       defaultValue={defaultValue}
       helperText={helperText}
       type={type}
-      classes={{
-        root: classes.root,
-      }}
+      // classes={{
+      //   root: classes.root,
+      // }}
     />
     // <form className={classes.root} noValidate autoComplete="off">
     //     </form>
