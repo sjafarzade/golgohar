@@ -3,6 +3,24 @@ import TextField from "../components/Input.jsx";
 import DatePicker from "../components/DatePicker.tsx";
 import TimePicker from "../components/TimePicker.tsx";
 import Table from "../components/Table.jsx";
+import { useTheme, makeStyles } from "@material-ui/core/styles";
+import Grid from "@material-ui/core/Grid";
+
+const useStyles = makeStyles((theme) => ({
+  parentGridRoot: {
+    flexGrow: 1,
+    "& .MuiTextField-root": {
+      margin: theme.spacing(1),
+      width: "100%",
+    },
+  },
+  margin_left: { margin: "10px 0" },
+  margin_right: { margin: "10px 50px" },
+  button: {
+    marginRight: theme.spacing(1),
+    backgroundColor: "#000",
+  },
+}));
 
 const columns = [
   { field: "id", title: "ردیف", width: 150 },
@@ -104,14 +122,34 @@ const rows = [
 ];
 
 const SendRequest = () => {
+  const classes = useStyles();
   return (
     <>
-      <DatePicker label="تاریخ ثبت" defaultValue="گهر ترابر" />
-      <TimePicker label="زمان ثبت" defaultValue="1111" />
-      <TextField
-        label="شرکت درخواست کننده"
-        defaultValue="شرکت توسعه آهن و فولاد گل گهر"
-      />
+      <Grid container>
+        <Grid className={classes.margin_left} item xs={12} md>
+          <div className={classes.parentGridRoot}>
+            <Grid container spacing={3}>
+              <Grid item xs={12} md={3}>
+                <DatePicker label="تاریخ ثبت" defaultValue="گهر ترابر" />
+              </Grid>
+            </Grid>
+            <Grid container spacing={3}>
+              <Grid item xs={12} md={3}>
+                <TimePicker label="زمان ثبت" defaultValue="1111" />
+              </Grid>
+            </Grid>
+            <Grid container spacing={3}>
+              <Grid item xs={12} md={3}>
+                <TextField
+                  label="شرکت درخواست کننده"
+                  defaultValue="شرکت توسعه آهن و فولاد گل گهر"
+                />
+              </Grid>
+            </Grid>
+          </div>
+        </Grid>
+      </Grid>
+
       <Table columns={columns} rows={rows} />
     </>
   );
