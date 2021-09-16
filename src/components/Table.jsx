@@ -3,9 +3,9 @@ import MaterialTable, { MTableToolbar } from "material-table";
 import { tableIcons } from "../const.jsx";
 
 export default function DataTable(props) {
-  const { columns = [], rows = [] } = props;
+  const { columns = [], rows = [], header = true, search = true } = props;
   return (
-    <div style={{ height: 400, width: "100%" }}>
+    <div style={{ height: "400px", width: "100%" }}>
       <MaterialTable
         icons={tableIcons}
         title={""}
@@ -20,6 +20,9 @@ export default function DataTable(props) {
           },
         }}
         options={{
+          header: header,
+          search: search,
+          // maxBodyHeight: 300,
           rowStyle: {
             fontWeight: "500",
             lineHeight: "1.5rem",
