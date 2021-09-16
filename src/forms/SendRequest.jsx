@@ -10,12 +10,12 @@ const useStyles = makeStyles((theme) => ({
   parentGridRoot: {
     flexGrow: 1,
     "& .MuiTextField-root": {
-      margin: theme.spacing(1),
+      marginBottom: theme.spacing(1),
       width: "100%",
     },
   },
-  margin_left: { margin: "10px 0" },
-  margin_right: { margin: "10px 50px" },
+  // margin_left: { margin: "10px 0" },
+  // margin_right: { margin: "10px 50px" },
   button: {
     marginRight: theme.spacing(1),
     backgroundColor: "#000",
@@ -39,7 +39,7 @@ const columns = [
   {
     field: "mobile",
     title: "تلفن همراه",
-    // type: "number",
+    // type: "numeric",
     width: 150,
     // editable: "always",
   },
@@ -128,18 +128,18 @@ const SendRequest = () => {
       <Grid container>
         <Grid className={classes.margin_left} item xs={12} md>
           <div className={classes.parentGridRoot}>
-            <Grid container spacing={3}>
-              <Grid item xs={12} md={3}>
+            <Grid container spacing={1}>
+              <Grid item xs={12} md={2}>
                 <DatePicker label="تاریخ ثبت" defaultValue="گهر ترابر" />
               </Grid>
             </Grid>
-            <Grid container spacing={3}>
-              <Grid item xs={12} md={3}>
+            <Grid container spacing={1}>
+              <Grid item xs={12} md={2}>
                 <TimePicker label="زمان ثبت" defaultValue="1111" />
               </Grid>
             </Grid>
-            <Grid container spacing={3}>
-              <Grid item xs={12} md={3}>
+            <Grid container spacing={1}>
+              <Grid item xs={12} md={2}>
                 <TextField
                   label="شرکت درخواست کننده"
                   defaultValue="شرکت توسعه آهن و فولاد گل گهر"

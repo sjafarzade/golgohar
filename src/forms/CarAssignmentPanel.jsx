@@ -1,5 +1,24 @@
 import React from "react";
 import Table from "../components/Table.jsx";
+import { useTheme, makeStyles } from "@material-ui/core/styles";
+import Grid from "@material-ui/core/Grid";
+import "../App.css";
+
+const useStyles = makeStyles((theme) => ({
+  parentGridRoot: {
+    flexGrow: 1,
+    "& .MuiTextField-root": {
+      marginBottom: theme.spacing(1),
+      width: "100%",
+    },
+  },
+  // margin_left: { margin: "10px 0" },
+  // margin_right: { margin: "10px 50px" },
+  button: {
+    marginRight: theme.spacing(1),
+    backgroundColor: "#000",
+  },
+}));
 
 const openReqCol = [
   {
@@ -11,24 +30,24 @@ const openReqCol = [
   {
     field: "Origin",
     title: "مبدا",
-    width: 160,
+    // width: 160,
   },
   {
     field: "Destination",
     title: "مقصد",
-    width: 160,
+    // width: 160,
   },
   {
     field: "NeedCount",
     title: "تعداد مورد نیاز",
-    width: 160,
-    type: "number",
+    width: 100,
+    type: "numeric",
   },
   {
     field: "OpenRequestCount",
     title: "تعداد درخواست باز",
-    width: 160,
-    type: "number",
+    // width: 160,
+    type: "numeric",
   },
 ];
 const openReqRows = [
@@ -66,41 +85,41 @@ const freeDriverCol = [
   {
     field: "NationalCode",
     title: "کدملی",
-    width: 200,
-    type: "number",
+    // width: 200,
+    type: "numeric",
   },
   {
     field: "FullName",
     title: "نام و نام خانوادگی",
-    width: 200,
+    // width: 200,
   },
   {
     field: "PlaqueCar",
     title: "پلاک خودرو",
-    width: 200,
+    // width: 200,
   },
   {
     field: "Status",
     title: "وضعیت",
-    width: 200,
-    type: "bool",
+    // width: 200,
+    type: "boolean",
   },
   {
     field: "NumberPerMonth",
     title: "تعداد بار طی ماه",
-    width: 200,
-    type: "number",
+    // width: 200,
+    type: "numeric",
   },
   {
     field: "NumberCancelPerMonth",
     title: "تعداد کنسلی",
-    width: 200,
-    type: "number",
+    // width: 200,
+    type: "numeric",
   },
   {
     field: "LastTransportDate",
     title: "آخرین تاریخ حمل",
-    width: 200,
+    // width: 200,
     type: "date",
   },
 ];
@@ -130,13 +149,13 @@ const delicatedCarCol = [
     field: "TemporarySerial",
     title: "سریال موقت بارنامه",
     width: 200,
-    type: "number",
+    type: "numeric",
   },
   {
     field: "NationalCode",
     title: "کدملی",
     width: 200,
-    type: "number",
+    type: "numeric",
   },
   {
     field: "FullName",
@@ -152,7 +171,7 @@ const delicatedCarCol = [
     field: "DefinitiveSerial",
     title: "سریال قطعی بارنامه",
     width: 200,
-    type: "number",
+    type: "numeric",
   },
   {
     field: "Status",
@@ -188,11 +207,43 @@ const delicatedCarRows = [
 ];
 
 const CarAssignmentPanel = () => {
+  const classes = useStyles();
   return (
     <>
-      <Table columns={openReqCol} rows={openReqRows} />
-      <Table columns={freeDriverCol} rows={freeDriverRows} />
-      <Table columns={delicatedCarCol} rows={delicatedCarRows} />
+      <Grid container id={"test"}>
+        {/* <Grid className={classes.margin_left} item xs={12} md>
+          <div className={classes.parentGridRoot}> */}
+        <Grid container spacing={3}>
+          <Grid item xs={12} md={6}>
+            <Table
+              columns={openReqCol}
+              rows={openReqRows}
+              // header={false}
+              search={false}
+            />
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <Table
+              columns={freeDriverCol}
+              rows={freeDriverRows}
+              // header={false}
+              search={false}
+            />
+          </Grid>
+        </Grid>
+        <Grid container spacing={3}>
+          <Grid item xs={12} md={12}>
+            <Table
+              columns={delicatedCarCol}
+              rows={delicatedCarRows}
+              // header={false}
+              search={false}
+            />
+          </Grid>
+        </Grid>
+        {/* </div>
+        </Grid> */}
+      </Grid>
     </>
   );
 };

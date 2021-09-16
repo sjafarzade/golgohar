@@ -8,12 +8,12 @@ const useStyles = makeStyles((theme) => ({
   parentGridRoot: {
     flexGrow: 1,
     "& .MuiTextField-root": {
-      margin: theme.spacing(1),
+      marginBottom: theme.spacing(1),
       width: "100%",
     },
   },
-  margin_left: { margin: "10px 0" },
-  margin_right: { margin: "10px 50px" },
+  // margin_left: { margin: "10px 0" },
+  // margin_right: { margin: "10px 50px" },
   button: {
     marginRight: theme.spacing(1),
     backgroundColor: "#000",
@@ -36,37 +36,37 @@ const columns = [
     field: "door",
     title: "شماره درب",
     width: 150,
-    type: "number",
+    type: "numeric",
   },
   {
     field: "WeighbridgeCount",
     title: "تعداد باسکول",
     width: 160,
-    type: "number",
+    type: "numeric",
   },
   {
     field: "LoadingCapacity",
     title: "ظرفیت بارگیری در شبانه روز",
     width: 160,
-    type: "number",
+    type: "numeric",
   },
   {
     field: "DischargeCapacity",
     title: "ظرفیت تخلیه باردر شبانه روز",
     width: 160,
-    type: "number",
+    type: "numeric",
   },
   {
     field: "LoadingAverageTime",
     title: "متوسط زمان بارگیری بدقیقه",
     width: 160,
-    type: "number",
+    type: "numeric",
   },
   {
     field: "DischargeAverageTime",
     title: "متوسط زمان تخلیه بدقیقه",
     width: 160,
-    type: "number",
+    type: "numeric",
   },
   {
     field: "StartWork",
@@ -118,45 +118,45 @@ const ShippingApplicants = () => {
       <Grid container>
         <Grid className={classes.margin_left} item xs={12} md>
           <div className={classes.parentGridRoot}>
-            <Grid container spacing={3}>
-              <Grid item xs={12} md={3}>
+            <Grid container spacing={1}>
+              <Grid item xs={12} md={2}>
                 <TextField
                   label="نام شرکت"
                   defaultValue="توسعه آهن و فولاد گل گهر"
                 />
               </Grid>
-              <Grid item xs={12} md={3}>
+              <Grid item xs={12} md={2}>
                 <TextField label="تلفن" defaultValue="12345678" />
               </Grid>
-              <Grid item xs={12} md={3}>
+              <Grid item xs={12} md={2}>
                 <TextField
                   label="حداکثر زمان تایید بارنامه باز بدقیقه"
                   defaultValue="60"
-                  type="number"
+                  type="numeric"
                 />
               </Grid>
             </Grid>
-            <Grid container spacing={3}>
-              <Grid item xs={12} md={3}>
+            <Grid container spacing={1}>
+              <Grid item xs={12} md={2}>
                 <TextField label="کد اقتصادی" defaultValue="1111" />
               </Grid>
-              <Grid item xs={12} md={3}>
+              <Grid item xs={12} md={2}>
                 <TextField label="تلفن همراه" defaultValue="9121234567" />
               </Grid>
             </Grid>
-            <Grid container spacing={3}>
-              <Grid item xs={12} md={3}>
+            <Grid container spacing={1}>
+              <Grid item xs={12} md={2}>
                 <TextField label="آدرس" defaultValue="سیرجان" />
               </Grid>
-              <Grid item xs={12} md={3}>
+              <Grid item xs={12} md={2}>
                 <TextField label="ارسال کننده" defaultValue="9121234567" />
               </Grid>
             </Grid>
-            <Grid container spacing={3}>
-              <Grid item xs={12} md={3}>
+            <Grid container spacing={1}>
+              <Grid item xs={12} md={2}>
                 <TextField label="شهر" defaultValue="سیرجان،کرمان" />
               </Grid>
-              <Grid item xs={12} md={3}>
+              <Grid item xs={12} md={2}>
                 <TextField label="دریافت کننده" defaultValue="9121234567" />
               </Grid>
             </Grid>
