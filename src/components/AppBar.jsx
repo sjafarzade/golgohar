@@ -167,6 +167,7 @@ function HomePage() {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
+  const [selectedIndex, setSelectedIndex] = React.useState(1);
   const [profilePic, setProfilePic] = React.useState("");
   const [openSaveDialog, setOpenSaveDialog] = useState({
     open: false,
@@ -289,6 +290,13 @@ function HomePage() {
   const handleClickForm = (e) => {
     const formname = e.currentTarget.getAttribute("formname");
     if (!formname) return;
+    const index = {
+      CargoCompanies: 0,
+      ShippingApplicants: 1,
+      SendRequest: 2,
+      CarAssignmentPanel: 3,
+    }[formname];
+    setSelectedIndex(index);
     activeForm(formname);
   };
 
@@ -368,7 +376,7 @@ function HomePage() {
           </IconButton>
         </div>
         <Divider />
-        <List>
+        {/* <List>
           {["Dashboard"].map((text, index) => (
             <ListItem
               button
@@ -381,7 +389,7 @@ function HomePage() {
             </ListItem>
           ))}
         </List>
-        <Divider />
+        <Divider /> */}
         <List>
           {[
             { name: "CargoCompanies", title: "موسسات باربری" },
@@ -395,6 +403,7 @@ function HomePage() {
                 key={el.name}
                 onClick={handleClickForm}
                 formname={el.name}
+                selected={selectedIndex === index}
               >
                 <ListItemIcon>{setIcon(el.name)}</ListItemIcon>
                 <ListItemText primary={el.title} />
@@ -405,7 +414,7 @@ function HomePage() {
       </Drawer>
       <main id="main" className={classes.content}>
         <div className={(classes.toolbar, classes.toolbarMain)} />
-        {showForm.Dashboard ? <Dashboard /> : null}
+        {/* {showForm.Dashboard ? <Dashboard /> : null} */}
         {showForm.CarAssignmentPanel ? <CarAssignmentPanel /> : null}
         {showForm.CargoCompanies ? <CargoCompanies /> : null}
         {showForm.SendRequest ? <SendRequest /> : null}
